@@ -198,6 +198,58 @@ let edelMetallPreise = [
 	{ name: "Rhenium", preiseGramEuro: 37.22, veraenderung: "-0.53%" },
 	{ name: "Osmium", preiseGramEuro: 11.54, veraenderung: "0.00%" },
 ];
+let table = document.getElementById("table2_2")
 
 // Verwende forEach() und greife auf alle name zu. Pushe diese in ein neues Array.
-// console.log(edelMetallPreise[0].name);
+let edelMetallName1 = [];
+edelMetallPreise.forEach((x) => {
+	edelMetallName1.push(x.name);
+});
+console.log(edelMetallName1);
+
+// Verwende map() und greife auf alle name zu.
+let edelMetalName2 = [];
+edelMetallPreise.map((x) => edelMetalName2.push(x.name))
+console.log(edelMetalName2);
+
+// Verwende forEach() und greife auf alle preiseGramEuro zu und pushe diese ein neues Array.
+let edelMetallPreise1 = [];
+edelMetallPreise.forEach((x) => {
+	edelMetallPreise1.push(x.preiseGramEuro);
+});
+console.log(edelMetallPreise1);
+
+// Verwende map() und greife auf alle preiseGramEuro zu.
+let edelMetallPreise2 = [];
+edelMetallPreise.map((x) => {
+	edelMetallPreise2.push(x.preiseGramEuro);
+});
+console.log(edelMetallPreise2);
+
+// Verwende forEach() und greife auf alle veraenderung zu und pushe in ein neues Array.
+let edelMetallVeraenderung1 = [];
+edelMetallPreise.forEach((x) => {
+	edelMetallVeraenderung1.push(x.veraenderung);
+});
+console.log(edelMetallVeraenderung1);
+
+// Verwende map() und greife auf alle veraenderung zu.
+let edelMetallVeraenderung2 = [];
+edelMetallPreise.map((x) => {
+	edelMetallVeraenderung2.push(x.veraenderung);
+});
+console.log(edelMetallVeraenderung2);
+
+// Verwende filter() und greife auf preiseGramEuro die teurer als 50 Euro zu 
+let mehrAlsFuenfzig = [];
+edelMetallPreise.filter((x) => {
+    if (x.preiseGramEuro > 50) {
+        mehrAlsFuenfzig.push(x)
+    }
+})
+console.log(mehrAlsFuenfzig);
+
+// Gib alles als Tabelle in deinem HTML-Dokument aus.
+for (x of edelMetallPreise) {
+    table.innerHTML+="<tr>"+"<td>"+x.name+"</td><td>"+x.preiseGramEuro+"</td><td>"+x.veraenderung+"</td></tr>"
+};
